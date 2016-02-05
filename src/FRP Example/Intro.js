@@ -20,15 +20,16 @@ Rx.Observable.fromEvent(submitButton, "click").map(undefined).subscribe(function
 // More DRY
 
 function TextObservable(text) {
-  return Rx.Observable.fromEvent(text, "keyup").pluck("target", "value");
+  var eventObservable = Rx.Observable.fromEvent(text, "keyup").pluck("target", "value");
+  return Rx.Observable.concat(Rx.Observable.return(""), eventObservable);
 }
 
 function ButtonObservable(button) {
   return Rx.Observable.fromEvent(button, "click").map(undefined);
 }
 
-var email = Rx.Observable.concat(Rx.Observable.return(""), TextObservable(emailField));
-var password = Rx.Observable.concat(Rx.Observable.return(""), TextObservable(passwordField));
+var email = TextObservable(emailField);
+var password = TextObservable(passwordField);
 var submit = ButtonObservable(submitButton);
 
 function contains(sequence) {
