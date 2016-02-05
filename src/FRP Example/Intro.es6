@@ -6,36 +6,34 @@ let resultLabel = document.getElementById("result")
 Rx.Observable.fromEvent(emailField, "keyup")
 .pluck("target", "value")
 .subscribe(x => {
-  // console.log("email: " + x)
+  console.log("email: " + x)
 })
-
 
 Rx.Observable.fromEvent(passwordField, "keyup")
 .pluck("target", "value")
 .subscribe(x => {
-  // console.log("password: " + x)
+  console.log("password: " + x)
 })
 
 Rx.Observable.fromEvent(submitButton, "click")
 .map(undefined)
 .subscribe(x => {
-  // console.log("button clicked")
+  console.log("button clicked")
 })
 
 // More DRY
 
 function TextObservable(text) {
-  return Rx.Observable.fromEvent(text, "keyup")
-  .pluck("target", "value")
+  let eventObservable = Rx.Observable.fromEvent(text, "keyup").pluck("target", "value")
+  return Rx.Observable.concat(Rx.Observable.return(""), eventObservable)
 }
 
 function ButtonObservable(button) {
-  return Rx.Observable.fromEvent(button, "click")
-  .map(undefined)
+  return Rx.Observable.fromEvent(button, "click").map(undefined)
 }
 
-let email = Rx.Observable.concat(Rx.Observable.return(""), TextObservable(emailField))
-let password = Rx.Observable.concat(Rx.Observable.return(""), TextObservable(passwordField))
+let email = TextObservable(emailField)
+let password = TextObservable(passwordField)
 let submit = ButtonObservable(submitButton)
 
 function contains(sequence) {
