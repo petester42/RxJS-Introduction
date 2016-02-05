@@ -2,14 +2,14 @@
 ## Intro To Functional Reactive Programming
 ### (FRP)
 ---
- 
-## Functional Programming 
+
+## Functional Programming
 ## +
 ## Reactive Programming
 
 ---
 
-# Functional Programming 
+# Functional Programming
 
 Treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.
 
@@ -19,7 +19,7 @@ Same input always equals same output
 
 ## Example
 
-### Find all prime numbers in an array? 
+### Find all prime numbers in an array?
 
 ---
 
@@ -48,7 +48,7 @@ let primeNumbers = numbers.filter(isPrime) //1, 17, 101, 3
 
 ### Take an array of names and an array of emails, create model objects and list all valid models
 
---- 
+---
 
 ```javascript
 class Person {
@@ -81,12 +81,22 @@ function contains(sequence) {
 let emails = ["test@mail.com", "garbage", "email@"]
 let names = ["Jimmy", "Dave", "Tyler"]
 
-let people = zip([names, emails]) 
-    // [["Jimmy", "test@mail.com"], ["Dave", "garbage"], ["Tyler", "email@"]]
-    .map(item => new Person(item[0], item[1])) 
-    // [Person {name: "Jimmy", email: "test@mail.com"}, Person {name: "Dave", email: "garbage"}, Person {name: "Tyler", email: "email@"}
-    .filter(person => contains(".com")(Person.getEmail(person))) 
-    // [Person {name: "Jimmy", email: "test@mail.com"}]
+let people = zip([names, emails])
+    // [
+    //   ["Jimmy", "test@mail.com"],
+    //   ["Dave", "garbage"],
+    //   ["Tyler", "email@"]
+    // ]
+    .map(item => new Person(item[0], item[1]))
+    // [
+    //   Person {name: "Jimmy", email: "test@mail.com"},
+    //   Person {name: "Dave", email: "garbage"},
+    //   Person {name: "Tyler", email: "email@"}
+    // ]
+    .filter(person => contains(".com")(Person.getEmail(person)))
+    // [
+    //   Person {name: "Jimmy", email: "test@mail.com"}
+    // ]
 ```
 
 ---
@@ -97,9 +107,9 @@ Changes in data will be automatically propagated through the data flow
 
 `c = a + b`
 
-a or b changes and c will automatically be changed (excel) 
+a or b changes and c will automatically be changed (excel)
 
---- 
+---
 
 # Functional Reactive Programming
 
@@ -123,7 +133,7 @@ Combines functional concepts with propagation of change
 - Ability to enter password
 - Ability to submit email and password
 
---- 
+---
 
 # Simple? Login Page
 
@@ -144,5 +154,3 @@ Combines functional concepts with propagation of change
 # FRP Way
 
 ### Demo
-
----
