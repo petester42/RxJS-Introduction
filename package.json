@@ -17,6 +17,7 @@
     "load-grunt-tasks": "^3.4.0"
   },
   "dependencies": {
-    "rx": "^4.0.7"
+    "rx": "^4.0.7",
+    "rx-dom": "^7.0.3"
   }
 }

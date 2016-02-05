@@ -12,7 +12,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: 'src/*.es6',
+                        src: 'src/**/*.es6',
                         ext: '.js'
                     }
                 ]
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
         },
         watch: {
             babel: {
-                files: ['src/*.es6'],
+                files: ['src/**/*.es6'],
                 tasks: ['babel']
             }
         }

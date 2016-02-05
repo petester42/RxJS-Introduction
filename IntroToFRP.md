@@ -3,7 +3,7 @@
 ### (FRP)
 ---
  
-## Funtional Programming 
+## Functional Programming 
 ## +
 ## Reactive Programming
 
@@ -91,7 +91,7 @@ let people = zip([names, emails])
 
 ---
 
-# Reacitve Programming
+# Reactive Programming
 
 Changes in data will be automatically propagated through the data flow
 
@@ -121,7 +121,7 @@ Combines functional concepts with propagation of change
 
 - Ability to enter email
 - Ability to enter password
-- Ability to sumbit email and password
+- Ability to submit email and password
 
 --- 
 
@@ -129,7 +129,7 @@ Combines functional concepts with propagation of change
 
 - Validate that email is valid
 - Validate that password is valid
-- Check that both email and password is present
+- Check that both email and password is present and valid
 - Prevent submitting multiple times in a row
 ...
 
